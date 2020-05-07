@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Sample Android App</string>
+    <string name="app_name">Chuck Norris jokes</string>
     <string name="get_joke">Get joke!</string>
+    <string name="image_url">https://blazepress.com/.image/t_share/MTI4OTk1Mjc0MzI3NzMwODE5/1.jpg</string>
+    <string name="content_description_image">Funny picture of Chuck Norris</string>
+    <string name="start_text">PUSH THE F***ING BUTTON!</string>
 </resources>
