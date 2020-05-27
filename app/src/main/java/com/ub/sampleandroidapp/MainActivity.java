@@ -62,14 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getMenuInflater().inflate(R.menu.menu_main, menu);
         MenuItem menuItem =  menu.findItem(R.id.action_share);
         shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-        TextView text = findViewById(R.id.tv_hello);
-        setShareActionIntent(text.getText().toString());
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -90,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 TextView text = findViewById(R.id.tv_hello);
                 text.setText(res);
                 randomJokeButton.setEnabled(true);
+                TextView tv = findViewById(R.id.tv_hello);
+                setShareActionIntent(tv.getText().toString());
             }
 
             @Override
