@@ -1,6 +1,5 @@
 package com.ub.sampleandroidapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
 import androidx.appcompat.widget.Toolbar;
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         randomJokeButton = findViewById(R.id.b_get_joke);
         randomJokeButton.setOnClickListener(this);
-        setSupportActionBar((Toolbar) findViewById(R.id.tb_toolbar));
+        setSupportActionBar((Toolbar) findViewById(R.id.tb_toolbar_main));
 
     }
 
