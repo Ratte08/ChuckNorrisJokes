@@ -1,14 +1,19 @@
 package com.ub.sampleandroidapp;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SortedList;
+
+import java.util.ArrayList;
 
 class JokesRecViewAdapter extends RecyclerView.Adapter<JokesRecViewAdapter.JokeViewHolder> {
+
+    public ArrayList<Joke> jokes = new ArrayList<>(App.getInstance().getJokeDao().getAll());
+
 
     @NonNull
     @Override
@@ -20,14 +25,12 @@ class JokesRecViewAdapter extends RecyclerView.Adapter<JokesRecViewAdapter.JokeV
     @Override
     public void onBindViewHolder(@NonNull JokeViewHolder holder, int position) {
         TextView textView = holder.textView;
-        //TODO: реализовать метод, возвращающий текст по id шутки из БД и вставить текст в кач-ве аргумента setText
-        textView.setText("placeholder");
+        textView.setText(jokes.get(position).getJoke());
     }
 
     @Override
     public int getItemCount() {
-        //TODO: После появления базы данных спрашивать у неё кол-во записей
-        return 0;
+        return jokes.size();
     }
 
     public class JokeViewHolder extends RecyclerView.ViewHolder {

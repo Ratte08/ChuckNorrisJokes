@@ -4,9 +4,9 @@ import java.util.List;
 
 public class RandomJokesResp {
     private String type;
-    private List<JokeModel> value;
+    private List<Joke> value;
 
-    public RandomJokesResp(String type, List<JokeModel> value) {
+    public RandomJokesResp(String type, List<Joke> value) {
         this.type = type;
         this.value = value;
     }
@@ -19,11 +19,11 @@ public class RandomJokesResp {
         this.type = type;
     }
 
-    public List<JokeModel> getValue() {
+    public List<Joke> getValue() {
         return value;
     }
 
-    public void setValue(List<JokeModel> value) {
+    public void setValue(List<Joke> value) {
         this.value = value;
     }
 }

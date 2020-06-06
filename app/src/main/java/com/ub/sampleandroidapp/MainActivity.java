@@ -83,8 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 TextView text = findViewById(R.id.tv_hello);
                 text.setText(res);
                 randomJokeButton.setEnabled(true);
-                TextView tv = findViewById(R.id.tv_hello);
-                setShareActionIntent(tv.getText().toString());
+                setShareActionIntent(text.getText().toString());
             }
 
             @Override

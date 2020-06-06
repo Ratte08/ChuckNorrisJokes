@@ -1,10 +1,16 @@
 package com.ub.sampleandroidapp;
 
-public class JokeModel {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class Joke {
+
+    @PrimaryKey
     private int id;
     private String joke;
 
-    public JokeModel(int id, String joke) {
+    public Joke(int id, String joke) {
         this.id = id;
         this.joke = joke;
     }

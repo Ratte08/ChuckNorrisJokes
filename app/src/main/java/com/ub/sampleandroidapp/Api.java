@@ -6,5 +6,5 @@ import retrofit2.http.GET;
 
 public interface Api {
     @GET("/jokes/random/2")
-    public Call<RandomJokesResp> loadRandomJokes();
+    Call<RandomJokesResp> loadRandomJokes();
 }
