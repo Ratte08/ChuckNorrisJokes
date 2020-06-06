@@ -1,4 +1,4 @@
-package com.ub.sampleandroidapp;
+package com.ub.sampleandroidapp.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
@@ -14,7 +14,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
+import com.ub.sampleandroidapp.App;
+import com.ub.sampleandroidapp.ui.favorite.FavoriteJokesActivity;
+import com.ub.sampleandroidapp.ui.interfaces.Api;
+import com.ub.sampleandroidapp.R;
+import com.ub.sampleandroidapp.utils.api.Joke;
+import com.ub.sampleandroidapp.utils.api.RandomJokesResp;
 
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button randomJokeButton;
     private ShareActionProvider shareActionProvider;
+    private FloatingActionButton addToFavouriteButton;
+    private Joke currentJoke;
 
     private OkHttpClient client = new OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
@@ -52,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         randomJokeButton = findViewById(R.id.b_get_joke);
         randomJokeButton.setOnClickListener(this);
+
+        addToFavouriteButton = findViewById(R.id.fab_add_to_favourite);
+
         setSupportActionBar((Toolbar) findViewById(R.id.tb_toolbar_main));
 
     }
@@ -79,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         api.loadRandomJokes().enqueue(new Callback<RandomJokesResp>() {
             @Override
             public void onResponse(Call<RandomJokesResp> call, Response<RandomJokesResp> response) {
+                currentJoke = response.body().getValue().get(0);
                 String res = response.body().getValue().get(0).getJoke();
                 TextView text = findViewById(R.id.tv_hello);
                 text.setText(res);
@@ -99,5 +112,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, text);
         shareActionProvider.setShareIntent(intent);
+    }
+
+    private void addToFavourite () {
+        App.getInstance().getDatabase().jokeDao().insert(currentJoke);
     }
 }

@@ -1,7 +1,8 @@
-package com.ub.sampleandroidapp;
+package com.ub.sampleandroidapp.ui.interfaces;
+
+import com.ub.sampleandroidapp.utils.api.RandomJokesResp;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.GET;
 
 public interface Api {

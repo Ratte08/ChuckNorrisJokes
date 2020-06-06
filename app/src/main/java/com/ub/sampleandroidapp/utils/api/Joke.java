@@ -1,18 +1,23 @@
-package com.ub.sampleandroidapp;
+package com.ub.sampleandroidapp.utils.api;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "favourite_jokes")
 public class Joke {
 
     @PrimaryKey
     private int id;
     private String joke;
 
+    @Ignore
     public Joke(int id, String joke) {
         this.id = id;
         this.joke = joke;
+    }
+
+    public Joke() {
     }
 
     public int getId() {

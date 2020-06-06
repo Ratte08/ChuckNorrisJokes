@@ -1,4 +1,6 @@
-package com.ub.sampleandroidapp;
+package com.ub.sampleandroidapp.utils.api;
+
+import com.ub.sampleandroidapp.utils.api.Joke;
 
 import java.util.List;
 

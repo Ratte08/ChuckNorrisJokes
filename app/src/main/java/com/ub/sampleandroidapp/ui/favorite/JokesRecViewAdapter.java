@@ -1,4 +1,4 @@
-package com.ub.sampleandroidapp;
+package com.ub.sampleandroidapp.ui.favorite;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,7 +6,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SortedList;
+
+import com.ub.sampleandroidapp.App;
+import com.ub.sampleandroidapp.utils.api.Joke;
+import com.ub.sampleandroidapp.R;
 
 import java.util.ArrayList;
 
