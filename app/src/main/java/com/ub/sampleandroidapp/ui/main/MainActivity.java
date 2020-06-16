@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button randomJokeButton;
     private ShareActionProvider shareActionProvider;
-    private FloatingActionButton addToFavouriteButton;
     private Joke currentJoke;
+    private FloatingActionButton fab;
 
     private OkHttpClient client = new OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         randomJokeButton = findViewById(R.id.b_get_joke);
         randomJokeButton.setOnClickListener(this);
-
-        addToFavouriteButton = findViewById(R.id.fab_add_to_favourite);
+        fab = findViewById(R.id.fab_add_to_favourite);
+        fab.setOnClickListener(this);
 
         setSupportActionBar((Toolbar) findViewById(R.id.tb_toolbar_main));
 
@@ -83,6 +83,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.b_get_joke:
                 loadRandomJokeAndDisplay();
                 randomJokeButton.setEnabled(false);
+                break;
+
+            case R.id.fab_add_to_favourite:
+                addToFavourite();
+                Intent intent = new Intent(this, FavoriteJokesActivity.class);
+                startActivity(intent);
                 break;
         }
     }

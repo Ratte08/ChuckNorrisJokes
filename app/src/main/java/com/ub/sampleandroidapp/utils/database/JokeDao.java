@@ -3,6 +3,7 @@ package com.ub.sampleandroidapp.utils.database;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -18,7 +19,7 @@ public interface JokeDao {
     @Query("SELECT * FROM favourite_jokes WHERE id = :id")
     Joke getById(int id);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Joke joke);
 
     @Update

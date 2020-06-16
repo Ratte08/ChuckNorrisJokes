@@ -45,4 +45,14 @@ class JokesRecViewAdapter extends RecyclerView.Adapter<JokesRecViewAdapter.JokeV
             textView = v;
         }
     }
+
+    public void deleteItem(int position) {
+        //Joke mRecentlyDeletedItem = jokes.get(position);
+        //int mRecentlyDeletedItemPosition = position;
+        App.getInstance().getDatabase().jokeDao().delete(jokes.get(position));
+        jokes.remove(position);
+        notifyItemRemoved(position);
+
+        //showUndoSnackbar();
+    }
 }
